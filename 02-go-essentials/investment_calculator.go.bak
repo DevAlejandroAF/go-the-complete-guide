@@ -9,10 +9,11 @@ import (
 	"strings"
 )
 
+const inflationRate = 2.5
+
 func main() {
 	reader := bufio.NewReader(os.Stdin)
 
-	const inflationRate = 2.5
 	var investmentAmount float64
 	var expectedReturnRate float64
 	var years float64
@@ -30,9 +31,22 @@ func main() {
 	yearsInput, _ := reader.ReadString('\n')
 	years, _ = strconv.ParseFloat(strings.TrimSpace(yearsInput), 64)
 
-	futureValue := investmentAmount * math.Pow(1+expectedReturnRate/100, years)
-	futureRealValue := futureValue / math.Pow(1+inflationRate/100, years)
+	futureValue, futureRealValue := calculateFutureValues(investmentAmount, expectedReturnRate, years)
 
-	fmt.Printf("Future value: %f\n", futureValue)
-	fmt.Printf("Future real value: %f", futureRealValue)
+	// Otras formas de imprimir
+	formattedFV := fmt.Sprintf("Future value: %.2f\n", futureValue)
+
+	fmt.Print(formattedFV)
+	fmt.Printf("Future value (adjusted for inflation): %.2f", futureRealValue)
+
+	// fmt.Printf(`
+	// Future value: %.2f
+	// Future value (adjusted for inflation): %.2f
+	// `, futureValue, futureRealValue)
+}
+
+func calculateFutureValues(investmentAmount, expectedReturnRate, years float64) (float64, float64) {
+	fv := investmentAmount * math.Pow(1+expectedReturnRate/100, years)
+	rfv := fv / math.Pow(1+inflationRate/100, years)
+	return fv, rfv
 }
