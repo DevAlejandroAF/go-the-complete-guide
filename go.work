@@ -1,8 +1,9 @@
-go 1.24.4
+go 1.24.5
 
 use (
 	./01-getting-started
 	./02-go-essentials
 	./03-working-with-packages
 	./04-understanding-pointers
+	./05-structs-custom-types
 )
