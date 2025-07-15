@@ -6,4 +6,5 @@ use (
 	./03-working-with-packages
 	./04-understanding-pointers
 	./05-structs-custom-types
+	./06-interfaces-generic-code
 )
