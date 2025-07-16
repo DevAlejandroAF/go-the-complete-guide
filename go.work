@@ -9,4 +9,5 @@ use (
 	./06-interfaces-generic-code
 	./07-arrays-slices-maps
 	./08-functions
+	./09-practice-project
 )
