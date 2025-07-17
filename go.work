@@ -10,4 +10,5 @@ use (
 	./07-arrays-slices-maps
 	./08-functions
 	./09-practice-project
+	./10-concurrency
 )
