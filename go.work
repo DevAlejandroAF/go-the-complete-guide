@@ -11,4 +11,5 @@ use (
 	./08-functions
 	./09-practice-project
 	./10-concurrency
+	./11-rest-api
 )
